@@ -16,7 +16,7 @@ import { ArrowLeft } from "lucide-react";
 import { fetchProductDetails } from "@/actions/fetchProductDetail";
 import { Skeleton } from "./ui/skeleton";
 
-interface Product {
+interface ProductDetail {
   product_name: string;
   image_url: string;
   categories_tags: Array<string>;
@@ -37,7 +37,7 @@ interface Nutrients {
 }
 
 export default function ProductDetailPage({ barcode }: { barcode: string }) {
-  const [product, setProduct] = useState<Product | null>(null);
+  const [product, setProduct] = useState<ProductDetail | null>(null);
   const [loading, setLoading] = useState(true);
   const [nutrientData, setNutrientData] = useState<Nutrients | null>(null);
 
@@ -177,7 +177,7 @@ export default function ProductDetailPage({ barcode }: { barcode: string }) {
   );
 }
 
-export function ProductDetailSkeleton() {
+function ProductDetailSkeleton() {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex mb-5 text-sm md:text-base text-primary">

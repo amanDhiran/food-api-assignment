@@ -14,8 +14,9 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import fetchProducts from "@/actions/fetchProducts";
-import { Loader2 } from "lucide-react";
+import { Loader2, Search } from "lucide-react";
 import { Skeleton } from "./ui/skeleton";
+import { useRouter } from "next/navigation";
 
 interface Product {
   product_name: string;
@@ -51,9 +52,9 @@ export default function ProductList() {
   const [page, setPage] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(true);
   const [query, setQuery] = useState<string>("");
-  const [fetchingMoreProducts, setFetchingMoreProducts] =
-    useState<boolean>(false);
+  const [fetchingMoreProducts, setFetchingMoreProducts] = useState<boolean>(false);
 
+  const router = useRouter();
   useEffect(() => {
     setLoading(true);
     const loadProducts = async () => {
@@ -85,6 +86,13 @@ export default function ProductList() {
     e.preventDefault();
     setPage(1);
     setQuery(nameQuery);
+  };
+
+  const handleBarcodeSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    if (barcodeQuery) {
+      router.push(`/product/${barcodeQuery}`)
+    }
   };
 
   const loadMoreProducts = async () => {
@@ -146,20 +154,24 @@ export default function ProductList() {
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-6">Food Products</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-          <form onSubmit={handleSearch}>
+          <form onSubmit={handleSearch} className="flex gap-2">
             <Input
               type="text"
               placeholder="Search by name..."
               value={nameQuery}
               onChange={(e) => setNameQuery(e.target.value)}
             />
+            <Button type="submit" variant={"outline"}><Search/></Button>
           </form>
+          <form onSubmit={handleBarcodeSearch} className="flex gap-2">
           <Input
             type="text"
             placeholder="Search by barcode..."
             value={barcodeQuery}
             onChange={(e) => setBarcodeQuery(e.target.value)}
           />
+          <Button type="submit" variant={"outline"}><Search/></Button>
+          </form>
           <Select
             onValueChange={(value) => setSelectedCategory(value)}
             defaultValue=""

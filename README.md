@@ -2,14 +2,30 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+First, clone the repository:
 
+```bash
+git clone https://github.com/amanDhiran/food-api-assignment.git
+npm run dev
+# or
+yarn dev
+```
+Install dependency:
+```bash
+npm install
+# or
+yarn install
+```
+Run the app:
 ```bash
 npm run dev
 # or
 yarn dev
 ```
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+>⚠️Ideally you would use a .env file to store the API URL, I did not do it for the sake of simplicity.
+
 
 ## How I solved the problem
 I used Next.js because of following reasons: 

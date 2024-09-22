@@ -8,29 +8,26 @@ First, run the development server:
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
-
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How I solved the problem
+I used Next.js because of following reasons: 
+- It makes it easier and more efficient to fetch data 
+- Using shadcn for styling 
+- Routing is easier
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+First of all i had to learn more about the Open Food Facts API, so most of my time went into exploring their website because the documentation they provided were not very good.
 
-## Learn More
+After I got the API endpoints I needed to fetch data in the application, I started coding the website. I kept UI simple yet intuitive and user-friendly.
 
-To learn more about Next.js, take a look at the following resources:
+There was no endpoint to sort the data the way we wanted so I did sorting in-house.
+I used server actions to fetch data.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Time taken to complete the assignment
+It took me about an 40 mins to learn about the API (again because the documentation was not very good).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+I got the application up and running with all the required features in about 3 hours, took me another 1 hour to refactor the code and make improvements.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+So I spent about 4 hours coding and 40 minutes researching. 
+  
